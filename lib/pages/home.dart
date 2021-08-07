@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:practice/controllers/products_controller.dart';
+import 'package:practice/pages/cart.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
+  @override
+  _HomeViewState createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
   final ProductsController productsController = Get.put(ProductsController());
+
   final List categories = [
     "TShirt",
     "Pants",
@@ -251,7 +258,13 @@ class HomeView extends StatelessWidget {
         IconButton(onPressed: () {}, icon: Icon(Icons.search)),
         IconButton(
             onPressed: () {}, icon: Icon(Icons.notifications_none_outlined)),
-        IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart_outlined)),
+        IconButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => CartPage(),
+              ));
+            },
+            icon: Icon(Icons.shopping_cart_outlined)),
       ],
     );
   }
