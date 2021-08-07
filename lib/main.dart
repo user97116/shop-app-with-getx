@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:practice/pages/home.dart';
+import 'package:neecoder/pages/home.dart';
 
 void main() {
   runApp(MyApp());
