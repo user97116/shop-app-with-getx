@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neecoder/controllers/categories/categories_controller.dart';
+import 'package:neecoder/main.dart';
 import 'package:neecoder/pages/cart.dart';
+import 'package:neecoder/pages/splash.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -264,7 +266,13 @@ class _HomeViewState extends State<HomeView> {
       actions: [
         IconButton(onPressed: () {}, icon: Icon(Icons.search)),
         IconButton(
-            onPressed: () {}, icon: Icon(Icons.notifications_none_outlined)),
+            onPressed: () {
+              authController.logout();
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (_) => SplashScreen()),
+              );
+            },
+            icon: Icon(Icons.logout_outlined)),
         IconButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
